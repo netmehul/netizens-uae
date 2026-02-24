@@ -64,7 +64,13 @@
   transition:
     box-shadow var(--transition),
     filter var(--transition);
-
+  box-shadow:
+    0 -8px 8px -6px #0000 inset,
+    0 -16px 16px -8px #00000000 inset,
+    1px 1px 1px #fff2,
+    2px 2px 2px #fff1,
+    -1px -1px 1px #0002,
+    -2px -2px 2px #0001;
 }
 
 .btn::after {
