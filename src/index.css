@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    @apply font-sans bg-white text-carbon-black antialiased;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ── Custom thin scrollbar ── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #58595b20; /* charcoal @ 12% opacity */
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0e3572; /* regal-navy */
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #16181b; /* carbon-black */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0e3572 #58595b20;
+}
+
+@layer components {
+  .btn-letter {
+    position: relative;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.7);
+    animation: letter-anim 3.5s ease-in-out infinite;
+    transition:
+      color 0.4s,
+      opacity 0.1s;
+  }
+
+  @keyframes letter-anim {
+    0%,
+    40%,
+    100% {
+      color: #ffffff;
+      filter: blur(0px);
+    }
+    60% {
+      color: #ffffff4d;
+      filter: blur(0.5px);
+    }
+  }
+
+  .btn-primary {
+    --button-color: #0e3572;
+    --hover-color: #3eafd1;
+    --border-radius: 4px;
+    --btn-transition: 0.4s;
+    background-color: var(--button-color);
+    background-image: radial-gradient(120% 100% at 50% -20%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+    box-shadow:
+      rgba(255, 255, 255, 0.2) 0px 1px 1px inset,
+      rgba(255, 255, 255, 0.15) 0px 2px 2px inset,
+      rgba(255, 255, 255, 0.1) 0px 4px 4px inset,
+      rgba(255, 255, 255, 0.05) 0px 8px 8px inset,
+      rgba(255, 255, 255, 0.05) 0px 16px 16px inset,
+      rgba(0, 0, 0, 0.02) 0px -1px 1px,
+      rgba(0, 0, 0, 0.03) 0px -2px 2px,
+      rgba(0, 0, 0, 0.05) 0px -4px 4px,
+      rgba(0, 0, 0, 0.06) 0px -8px 8px,
+      rgba(0, 0, 0, 0.08) 0px -16px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.133);
+    border-radius: var(--border-radius);
+    transition:
+      box-shadow var(--btn-transition),
+      border var(--btn-transition),
+      background-color var(--btn-transition),
+      transform var(--btn-transition);
+
+    &:hover {
+      background: var(--hover-color);
+    }
+  }
+
+  .btn-primary:active {
+    transform: translateY(0px);
+    box-shadow:
+      rgba(255, 255, 255, 0.2) 0px 1px 1px inset,
+      rgba(255, 255, 255, 0.15) 0px 2px 2px inset,
+      rgba(255, 255, 255, 0.1) 0px 4px 4px inset,
+      rgba(255, 255, 255, 0.05) 0px 8px 8px inset,
+      rgba(255, 255, 255, 0.05) 0px 16px 16px inset,
+      rgba(0, 0, 0, 0.02) 0px -1px 1px,
+      rgba(0, 0, 0, 0.03) 0px -2px 2px,
+      rgba(0, 0, 0, 0.05) 0px -4px 4px,
+      rgba(0, 0, 0, 0.06) 0px -8px 8px,
+      rgba(0, 0, 0, 0.08) 0px -16px 16px;
+    transition:
+      box-shadow 0.1s,
+      border 0.1s,
+      transform 0.1s;
+  }
+}
