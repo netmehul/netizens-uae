@@ -1,24 +1,28 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { useNavigate } from "react-router-dom";
 import heroBg from "../assets/images/background-image-hero.png";
 import { RatingWidget } from "./RatingWidget";
+import { Input } from "./ui/Input";
+import { Button } from "./ui/Button";
 
 export function Hero() {
+  const navigate = useNavigate();
   const contentRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
 
-  useEffect(() => {
-    // Load HubSpot Meetings embed script
-    const script = document.createElement("script");
-    script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (script.parentNode) script.parentNode.removeChild(script);
-    };
-  }, []);
+  // HubSpot Meetings embed script - commented out
+  // useEffect(() => {
+  //   const script = document.createElement("script");
+  //   script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+  //   script.async = true;
+  //   document.body.appendChild(script);
+  //   return () => {
+  //     if (script.parentNode) script.parentNode.removeChild(script);
+  //   };
+  // }, []);
 
   useEffect(() => {
     // Basic GSAP animation on load
@@ -119,16 +123,33 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right - HubSpot Meetings Embed */}
+        {/* Right - Form (HubSpot embed commented out) */}
         <div
           ref={formRef}
-          className="w-full border lg:w-[648px] max-h-[680px] shrink-0 rounded-[10px] shadow-xl relative overflow-hidden order-2"
+          className="w-full border lg:w-[424px] shrink-0 bg-white px-5 py-5 sm:py-8 rounded-[10px] shadow-xl relative overflow-hidden order-2"
         >
-          <div className="overflow-y-auto embed-scrollbar">
-            <div
-              className="meetings-iframe-container"
-              data-src="https://meetings-na2.hubspot.com/deepika-pathak?embed=true"
-            />
+          <div className="relative z-10 flex flex-col gap-3 sm:gap-6">
+            <h3 className="font-headings text-lg sm:text-2xl text-regal-navy font-semibold text-center w-full">
+              Request your discovery call
+            </h3>
+
+            <div className="flex flex-col gap-3 w-full">
+              <Input label="Name" />
+              <Input label="Email Address" type="email" />
+              <Input label="Phone No" type="tel" />
+              <Input label="Message" isTextArea />
+            </div>
+
+            <Button
+              showArrow
+              className="w-full mt-2"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/thank-you");
+              }}
+            >
+              Book a Discovery Call
+            </Button>
           </div>
         </div>
 
