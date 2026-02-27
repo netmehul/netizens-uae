@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
-import heroBg from "../assets/images/background-image-hero.png";
+// import heroBg from "../assets/images/background-image-hero.png";
+import newBgImage from "../assets/images/new-bg-image.svg";
 import { RatingWidget } from "./RatingWidget";
 import { Input } from "./ui/Input";
 import { Button } from "./ui/Button";
@@ -82,14 +83,24 @@ export function Hero() {
 
   return (
     <section className="relative w-full min-h-[80vh] pt-28 pb-9 sm:pb-20 flex items-center overflow-hidden">
-      {/* Hero Background Image - Burj Khalifa */}
-      <div className="absolute bottom-[-8%] left-[-8%] h-[80%] w-[20%] z-0 pointer-events-none hidden md:flex justify-start mix-blend-multiply">
+      {/* Hero Background Image - Burj Khalifa (commented out) */}
+      {/* <div className="absolute bottom-[-8%] left-[-8%] h-[80%] w-[20%] z-0 pointer-events-none hidden md:flex justify-start mix-blend-multiply">
         <img
           src={heroBg}
           alt=""
           className="object-cover h-full object-left-bottom"
         />
-      </div>
+      </div> */}
+      {/* Hero Background - new-bg-image.svg (repeating pattern) */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none hidden md:block mix-blend-multiply"
+        style={{
+          backgroundImage: `url(${newBgImage})`,
+          backgroundRepeat: "repeat-x",
+          backgroundPosition: "bottom center",
+          backgroundSize: "auto 30%",
+        }}
+      />
 
       <div className="max-w-[1320px] mx-auto px-4 w-full flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-8 z-10">
         {/* Left Content */}
