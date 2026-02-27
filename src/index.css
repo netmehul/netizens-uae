@@ -53,6 +53,31 @@
   scrollbar-color: #0e3572 #58595b20;
 }
 
+/* Custom scrollbar for embed containers - thin bar, no arrows */
+.embed-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #0E3572 #58595b20;
+}
+.embed-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.embed-scrollbar::-webkit-scrollbar-button {
+  display: none;
+  height: 0;
+  width: 0;
+}
+.embed-scrollbar::-webkit-scrollbar-track {
+  background: #58595b15;
+  border-radius: 999px;
+}
+.embed-scrollbar::-webkit-scrollbar-thumb {
+  background: #0e3572;
+  border-radius: 999px;
+}
+.embed-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #16181b;
+}
+
 @layer components {
   .btn-letter {
     position: relative;
@@ -105,6 +130,20 @@
 
     &:hover {
       background: var(--hover-color);
+    }
+  }
+
+  .rating-widget:hover {
+    animation: widget-pulse 1.8s ease-in-out infinite;
+  }
+
+  @keyframes widget-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
     }
   }
 

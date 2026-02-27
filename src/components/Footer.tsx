@@ -7,7 +7,7 @@ export const Footer = () => {
 
                 {/* Copyright info */}
                 <p className="font-['Plus_Jakarta_Sans',sans-serif] text-[12px] md:text-[14px] text-[#FFFAFA] opacity-90 text-center md:text-left">
-                    Copyright © {currentYear} netizenstechnologies.com - All rights reserved.
+                    Copyright © {currentYear} netizenstechnologies.com - All rights reserved. Trade License No. 11185
                 </p>
 
                 {/* Policy Links */}
