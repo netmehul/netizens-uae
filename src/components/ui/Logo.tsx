@@ -6,7 +6,7 @@ export function Logo({ className = "" }: { className?: string }) {
       <img
         src={logoSrc}
         alt="NETIZENS technologies"
-        className="h-[48px] w-auto max-w-28 xs:max-w-max"
+        className="h-[48px] w-auto max-w-48 xs:max-w-max"
       />
     </div>
   );
