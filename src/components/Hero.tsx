@@ -82,12 +82,12 @@ export function Hero() {
 
   return (
     <section className="relative w-full min-h-[80vh] pt-28 pb-9 sm:pb-20 flex items-center overflow-hidden">
-      {/* Hero Background Image */}
-      <div className="absolute bottom-0 right-0 h-[90%] w-[50%] z-0 pointer-events-none hidden md:flex justify-end mix-blend-multiply">
+      {/* Hero Background Image - Burj Khalifa */}
+      <div className="absolute bottom-[-8%] left-[-8%] h-[80%] w-[20%] z-0 pointer-events-none hidden md:flex justify-start mix-blend-multiply">
         <img
           src={heroBg}
           alt=""
-          className="object-cover h-full object-right-bottom"
+          className="object-cover h-full object-left-bottom"
         />
       </div>
 
@@ -126,7 +126,7 @@ export function Hero() {
         {/* Right - Form (HubSpot embed commented out) */}
         <div
           ref={formRef}
-          className="w-full border lg:w-[424px] shrink-0 bg-white px-5 py-5 sm:py-8 rounded-[10px] shadow-xl relative overflow-hidden order-2"
+          className="w-full border lg:w-[424px] shrink-0 bg-white px-5 py-5 sm:py-8 rounded-[10px] shadow-xl relative order-2"
         >
           <div className="relative z-10 flex flex-col gap-3 sm:gap-6">
             <h3 className="font-headings text-lg sm:text-2xl text-regal-navy font-semibold text-center w-full">
@@ -135,9 +135,81 @@ export function Hero() {
 
             <div className="flex flex-col gap-3 w-full">
               <Input label="Name" />
-              <Input label="Email Address" type="email" />
-              <Input label="Phone No" type="tel" />
-              <Input label="Message" isTextArea />
+              <Input label="Email" type="email" />
+              <div className="w-full flex border border-black/10 rounded-[10px] focus-within:border-regal-navy focus-within:ring-1 focus-within:ring-regal-navy transition-colors">
+                <select
+                  className="form-select-compact bg-gray-50/80 pl-2 pr-6 py-2 sm:py-3 text-charcoal font-sans text-[13px] border-r border-black/10 h-[44px] sm:h-[52px] w-[72px] shrink-0 rounded-l-[10px]"
+                  defaultValue="+971"
+                  aria-label="Country code"
+                >
+                  <option value="+971">+971</option>
+                  <option value="+966">+966</option>
+                  <option value="+973">+973</option>
+                  <option value="+974">+974</option>
+                  <option value="+968">+968</option>
+                  <option value="+965">+965</option>
+                  <option value="+91">+91</option>
+                  <option value="+92">+92</option>
+                  <option value="+44">+44</option>
+                  <option value="+1">+1</option>
+                  <option value="+61">+61</option>
+                  <option value="+49">+49</option>
+                  <option value="+33">+33</option>
+                  <option value="+81">+81</option>
+                  <option value="+86">+86</option>
+                  <option value="+20">+20</option>
+                  <option value="+27">+27</option>
+                  <option value="+234">+234</option>
+                  <option value="+254">+254</option>
+                  <option value="+55">+55</option>
+                  <option value="+7">+7</option>
+                  <option value="+90">+90</option>
+                  <option value="+39">+39</option>
+                  <option value="+34">+34</option>
+                  <option value="+31">+31</option>
+                  <option value="+65">+65</option>
+                  <option value="+60">+60</option>
+                  <option value="+62">+62</option>
+                  <option value="+63">+63</option>
+                  <option value="+64">+64</option>
+                </select>
+                <input
+                  type="tel"
+                  placeholder="50 123 4567"
+                  className="flex-1 px-4 py-2 sm:py-3 bg-white text-charcoal font-sans text-[14px] focus:outline-none placeholder:text-charcoal/60 sm:h-[52px] rounded-r-[10px]"
+                />
+              </div>
+              <div className="w-full">
+                <label className="block font-sans text-[14px] text-charcoal/80 mb-1">
+                  What is your budget to build the website?
+                </label>
+                <select
+                  className="form-select w-full border border-black/10 rounded-[10px] px-4 py-2 sm:py-3 text-charcoal font-sans text-[14px] sm:h-[52px]"
+                  defaultValue=""
+                >
+                  <option value="" disabled>Select budget</option>
+                  <option value="under-2000">Under AED 2000</option>
+                  <option value="2000-5000">AED 2000-5000</option>
+                  <option value="more-than-10000">More than AED 10,000</option>
+                </select>
+              </div>
+              <div className="w-full">
+                <label className="block font-sans text-[14px] text-charcoal/80 mb-1">
+                  What is the primary objective of your enquiry?
+                </label>
+                <select
+                  className="form-select w-full border border-black/10 rounded-[10px] px-4 py-2 sm:py-3 text-charcoal font-sans text-[14px] sm:h-[52px]"
+                  defaultValue=""
+                >
+                  <option value="" disabled>Select objective</option>
+                  <option value="generate-leads">Generate more leads</option>
+                  <option value="online-sales">Increase online sales</option>
+                  <option value="google-ranking">Improve Google ranking</option>
+                  <option value="performance-speed">Improve website performance & speed</option>
+                  <option value="rebrand-design">Rebrand / Improve website design</option>
+                  <option value="build-from-scratch">Build online presence from scratch</option>
+                </select>
+              </div>
             </div>
 
             <Button
